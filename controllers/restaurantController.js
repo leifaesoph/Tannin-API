@@ -2,10 +2,15 @@ const db = require("../models");
 
 //change MasterWineList to Restaurants to access models Restaurants collection
 module.exports = {
-    findAll: function(req, res) {
-        db.Restaurants.find()
-          .then(dbResto => res.jstus(422).json(err));
-    },
+  findAll: function(req, res) {
+    db.Restaurants.find()
+      .then(dbResto => res.json(dbResto))
+      .catch(err => res.status(422).json(err));
+},
+    // findAll: function(req, res) {
+    //     db.Restaurants.find()
+    //       .then(dbResto => res.jstus(422).json(err));
+    // },
     
 //DMS -- RESTAURANT MODEL
     create: function(req, res) {

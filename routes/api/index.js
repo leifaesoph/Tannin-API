@@ -16,8 +16,8 @@ const addwineRoutes = require("./Addwine");
 const getwineRoutes = require("./Getwine");
 
 router.use("/employees", employeesRoutes);
-router.use("/restaurant", restaurantRoutes);
-router.use("/wine", wineRoutes);
+router.use("/restaurants", restaurantRoutes);
+router.use("/wines", wineRoutes);
 
 router.use("/addwine", addwineRoutes);
 router.use("/addEmployee", addEmployeeRoutes);

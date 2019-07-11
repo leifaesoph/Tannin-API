@@ -3,19 +3,19 @@ const db = require('./models')
 mongoose.Promise = global.Promise
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/wines'
+  process.env.MONGODB_URI || 'mongodb://localhost/tannin-dev'
 )
-// db = mongoose.connection
+//  db = mongoose.connection
 // db.on('error', err => {
-//  console.log(`There was an error connecting to the database: ${err}`)
+// 	console.log(`There was an error connecting to the database: ${err}`)
 // })
 // db.once('open', () => {
-//  console.log(
-//    `You have successfully connected to your mongo database: ${MONGO_URL}`
-//  )
+// 	console.log(
+// 		`You have successfully connected to your mongo database: ${MONGO_URL}`
+// 	)
 // })
 
-const wineSeed = [
+var wineSeed = [
   {
     'name': 'Bandol (Red)',
     'pronunciation': 'ban-dul',
@@ -46,7 +46,7 @@ const wineSeed = [
     'alcohol': 'Over 15% ABV',
     'temp': 'Room Temperature',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ years',
     'pairings': ['chocolate']
   },
@@ -80,7 +80,7 @@ const wineSeed = [
     'alcohol': '10-11.5% ABV',
     'temp': '55–60°F / 13–16°C',
     'glassType': 'Aroma Collector',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '5-10 Years',
     'pairings': ['beef', 'pork', 'chicken', 'salmon']
   },
@@ -114,7 +114,7 @@ const wineSeed = [
     'alcohol': '11.5-13.5% ABV',
     'temp': '45–55°F / 7–13°C',
     'glassType': 'White',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ Years',
     'pairings': ['trout', 'oysters', 'mussels', 'sushi']
   },
@@ -148,7 +148,7 @@ const wineSeed = [
     'alcohol': '10-11.5% ABV',
     'temp': '38–45°F / 3–7°C',
     'glassType': 'Flute',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '5-10 Years',
     'pairings': ['chicken', 'pork']
   },
@@ -165,7 +165,7 @@ const wineSeed = [
     'alcohol': '10-11.5% ABV',
     'temp': '38–45°F / 3–7°C',
     'glassType': 'Flute',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '3-5 Years',
     'pairings': ['tapas', 'paella', 'red bean chili']
   },
@@ -182,7 +182,7 @@ const wineSeed = [
     'alcohol': '11.5-13.5% ABV',
     'temp': '45–55°F / 7–13°C',
     'glassType': 'White',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ years',
     'pairings': ['oysters']
   },
@@ -199,7 +199,7 @@ const wineSeed = [
     'alcohol': '10-11.5% ABV',
     'temp': '38–45°F / 3–7°C',
     'glassType': 'Flute',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ years',
     'pairings': ['salty food', 'fried food']
   },
@@ -233,7 +233,7 @@ const wineSeed = [
     'alcohol': '10-11.5% ABV',
     'temp': '38–45°F / 3–7°C',
     'glassType': 'Flute',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '3-5 Years',
     'pairings': ['fried foods', 'soft cheeses', 'salty appetizers']
   },
@@ -250,7 +250,7 @@ const wineSeed = [
     'alcohol': '10-11.5% ABV',
     'temp': '',
     'glassType': 'Flute',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '5-10 Years',
     'pairings': ['soft cheese', 'ripened cheeses', 'dried fruits', 'roasted salted nuts']
   },
@@ -267,7 +267,7 @@ const wineSeed = [
     'alcohol': '10-11.5% ABV',
     'temp': '45–55°F / 7–13°C',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '3-5 Years',
     'pairings': ['fruity desserts', 'cheesecake', 'ice cream', 'soft cheese', 'pungent cheese']
   },
@@ -284,7 +284,7 @@ const wineSeed = [
     'alcohol': '10-11.5% ABV',
     'temp': '45–55°F / 7–13°C',
     'glassType': 'Universal',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '1-3 Years',
     'pairings': ['pizza', 'burgers', 'prosciutto di parma', 'parmigiano-reggiano']
   },
@@ -301,7 +301,7 @@ const wineSeed = [
     'alcohol': 'Over 15% ABV',
     'temp': '55–60°F / 13–16°C',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ Years',
     'pairings': ['artichoke', 'pea soup', 'asparagus']
   },
@@ -318,7 +318,7 @@ const wineSeed = [
     'alcohol': 'Over 15% ABV',
     'temp': '55–60°F / 13–16°C',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ Years',
     'pairings': ['nuts', 'charcuterie', 'dried fruit', 'firm cheeses']
   },
@@ -352,7 +352,7 @@ const wineSeed = [
     'alcohol': 'Under 10% ABV',
     'temp': '55–60°F / 13–16°C',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '3-5 Years',
     'pairings': ['Portuguese cheeses', 'gooey cheese', 'Queijo de Ovelha', 'caramel', 'dessert']
   },
@@ -386,7 +386,7 @@ const wineSeed = [
     'alcohol': 'Over 15% ABV',
     'temp': '55–60°F / 13–16°C',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ Years',
     'pairings': ['blue cheese']
   },
@@ -403,7 +403,7 @@ const wineSeed = [
     'alcohol': 'Over 15% ABV',
     'temp': '45–55°F / 7–13°C',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ Years',
     'pairings': ['chocolate', 'fruit tarts', 'Stilton cheese']
   },
@@ -437,7 +437,7 @@ const wineSeed = [
     'alcohol': '11.5-13.5%',
     'temp': '38–45°F / 3–7°C',
     'glassType': 'White',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '1-3 Years',
     'pairings': ['antipasta', 'cured meats', 'almonds', 'spicy Asian food']
   },
@@ -454,7 +454,7 @@ const wineSeed = [
     'alcohol': '11.5-13.5% ABV',
     'temp': '38–45°F / 3–7°C',
     'glassType': 'White',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '3-5 Years',
     'pairings': ['charcuterie', 'salads', 'light pastas', 'fresh fruit', 'potato', 'pasta salads']
   },
@@ -488,7 +488,7 @@ const wineSeed = [
     'alcohol': '13.5-15% ABV',
     'temp': '45–55°F / 7–13°C',
     'glassType': 'White',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '5-10 Years',
     'pairings': ['rich poultry', 'rich fish', 'roasted fruit', 'fruit-based sauces']
   },
@@ -522,7 +522,7 @@ const wineSeed = [
     'alcohol': '11.5-13.5% ABV',
     'temp': '45–55°F / 7–13°C',
     'glassType': 'White',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '3-5 Years',
     'pairings': ['goat cheese', 'Oysters', 'salad', 'citrus']
   },
@@ -539,7 +539,7 @@ const wineSeed = [
     'alcohol': '11.5-13.5% ABV',
     'temp': '45–55°F / 7–13°C',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ Years',
     'pairings': ['wash-rind soft cheeses', 'roquefort']
   },
@@ -556,7 +556,7 @@ const wineSeed = [
     'alcohol': 'Over 15% ABV',
     'temp': '55–60°F / 13–16°C',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '3-5 Years',
     'pairings': ['smoked fish', 'fried fish', 'grilled fish', 'grilled vegetables', 'barbecue ribs', 'gooey cheeses']
   },
@@ -573,7 +573,7 @@ const wineSeed = [
     'alcohol': '11.5-13.5% ABV',
     'temp': '45–55°F / 7–13°C',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ Years',
     'pairings': ['foie gras', 'blue cheese', 'crème caramel']
   },
@@ -591,7 +591,7 @@ const wineSeed = [
     'alcohol': '10-11.5% ABV',
     'temp': '38–45°F / 3–7°C',
     'glassType': 'Flute',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '3-5 Years',
     'pairings': ['oysters', 'seafood', 'roast chicken', 'risotto', 'creamy pastas']
   },
@@ -608,7 +608,7 @@ const wineSeed = [
     'alcohol': 'Under 10% ABV',
     'temp': '38–45°F / 3–7°C',
     'glassType': 'White',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '3-5 Years',
     'pairings': ['raw seafood', 'ceviches', 'oysters,', 'sushi']
   },
@@ -642,7 +642,7 @@ const wineSeed = [
     'alcohol': 'Over 15% ABV',
     'temp': '45–55°F / 7–13°C',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ Years',
     'pairings': ['pastries', 'almond biscotti', 'soft cheese', 'funky cheese', 'Taleggio']
   },
@@ -659,7 +659,7 @@ const wineSeed = [
     'alcohol': '13.5-15% ABV',
     'temp': '55–60°F / 13–16°C',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '5-10 Years',
     'pairings': ['biscotti']
   },
@@ -676,7 +676,7 @@ const wineSeed = [
     'alcohol': '10-11.5% ABV',
     'temp': '38–45°F / 3–7°C',
     'glassType': 'White',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '1-3 Years',
     'pairings': ['fish tacos', 'mango salsa', 'ceviche', 'sushi']
   },
@@ -693,7 +693,7 @@ const wineSeed = [
     'alcohol': '11.5-13.5% ABV',
     'temp': '55–60°F / 13–16°C',
     'glassType': 'Dessert',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ Years',
     'pairings': ['nutty dessert', 'baklava', 'kataïfi tart']
   },
@@ -710,7 +710,7 @@ const wineSeed = [
     'alcohol': '10-11.5% ABV',
     'temp': '45–55°F / 7–13°C',
     'glassType': 'White',
-    'decant': 'No',
+    'decant': 'This wine is not decanted',
     'ageability': '10+ Years',
     'pairings': ['cheese souffle', 'white fish', 'pork', 'pastas']
   },

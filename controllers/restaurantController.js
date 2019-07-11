@@ -1,4 +1,5 @@
 const db = require('../models')
+const transporter = require('../nodemailer')
 
 // change MasterWineList to Restaurants to access models Restaurants collection
 module.exports = {

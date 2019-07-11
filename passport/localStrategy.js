@@ -7,9 +7,9 @@ const strategy = new LocalStrategy(
     passwordField: 'password'
   },
   function (email, password, done) {
-    console.log('LocalStrategy: ' + email)
+    // console.log('LocalStrategy email: ' + email)
     db.Employees.findOne({ email: email }, (err, userMatch) => {
-      console.log(userMatch)
+      // console.log('LocalStrategy userMatch', userMatch)
       if (err) {
         return done(err)
       }
@@ -21,10 +21,9 @@ const strategy = new LocalStrategy(
         return done(null, false, { message: 'Incorrect password' })
       }
       console.log('done')
-      return done(null, userMatch)
-      // return done(null, userMatch);
+        return done(null, userMatch)
     }).then(function (data) {
-      console.log(data)
+      console.log('LocalStrategy .then data', data)
     })
   }
 )

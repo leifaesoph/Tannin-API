@@ -12,7 +12,7 @@ router.route('/wineseed')
   .get(function (req, res) {
     db.MasterWineList.collection.deleteMany({})
       .then(() => db.MasterWineList.collection.insertMany(wineSeed))
-      .then(() => {
+      .then(data => {
         res.send('Wine successfully Seeded!')
       })
       .catch(err => {
@@ -21,14 +21,8 @@ router.route('/wineseed')
   })
 
 router.route('/:id')
-  .get(wineController.findById).catch(err => {
-    console.error(err)
-  })
-  .put(wineController.update).catch(err => {
-    console.error(err)
-  })
-  .delete(wineController.remove).catch(err => {
-    console.error(err)
-  })
+  .get(wineController.findById)
+  .put(wineController.update)
+  .delete(wineController.remove)
 
 module.exports = router
